@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Proyecto DevOps - Tatiana Grajales y Juan David Grajales</title>
+
+  <style>
+    body {
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .card {
+      background: white;
+      padding: 50px;
+      border-radius: 20px;
+      text-align: center;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+      max-width: 500px;
+    }
+
+    h1 {
+      color: #333;
+      margin-bottom: 10px;
+    }
+
+    p {
+      color: #666;
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 15px 40px;
+      font-size: 18px;
+      border: none;
+      border-radius: 12px;
+      background: linear-gradient(45deg, #ff6a00, #ffb347);
+      color: white;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    #mensaje {
+      margin-top: 25px;
+      font-size: 18px;
+      color: #444;
+      font-weight: 500;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="card">
+    <h1>Proyecto DevOps</h1>
+
+    <p><b>Tatiana Grajales y Juan David Grajales</b></p>
+
+    <p>Tecnología en Desarrollo de Software para Negocios Digitales</p>
+
+    <p>Contenedor Docker con Backend y Frontend</p>
+
+    <button onclick="saludar()">Tatiana y Juan David</button>
+
+    <div id="mensaje"></div>
+  </div>
+
+  <script>
+    var estado = true;
+
+    function saludar() {
+
+      fetch("/tatiana")
+        .then((response) => response.json())
+        .then((data) => {
+          document.getElementById("mensaje").innerText = data.mensaje;
+        });
+
+      if (estado == true) {
+        mensaje.style.display = "block";
+        estado = false;
+      } else if (!estado == true) {
+        mensaje.style.display = "none";
+        estado = true;
+      }
+    }
+  </script>
+</body>
+
+</html>
